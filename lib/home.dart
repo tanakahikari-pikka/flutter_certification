@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:the_natures_app/examination/ui/screen/exam_index_screen/exam_index_screen.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
 
-import 'examination/ui/four_choice_question.dart';
 import 'system_button.dart';
 
 class Home extends StatefulWidget {
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const FourChoiceQuestion(),
+              builder: (BuildContext context) => const ExamIndexScreen(),
             ),
           );
         },
