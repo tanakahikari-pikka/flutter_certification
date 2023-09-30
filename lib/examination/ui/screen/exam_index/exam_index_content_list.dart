@@ -7,6 +7,7 @@ class ExamList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      padding: EdgeInsets.zero,
       itemCount: 8, // Riverpodから取得した検定一覧の数
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
