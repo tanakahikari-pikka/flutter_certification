@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
-import 'package:the_natures_app/resourse/theme_resource.dart';
+import 'package:the_natures_app/resource/theme_resource.dart';
 
 import 'splash_screen.dart';
 
