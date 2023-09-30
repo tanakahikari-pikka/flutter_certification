@@ -2,8 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 enum ExamType {
   fourChoiceQuestion(displayName: '4択クイズ', sortNumber: 1),
-  trueOrFalseChoiceQuestion(displayName: '○×クイズ', sortNumber: 2),
-  ;
+  trueOrFalseChoiceQuestion(displayName: '○×クイズ', sortNumber: 2);
 
   final String displayName;
   final int sortNumber;
