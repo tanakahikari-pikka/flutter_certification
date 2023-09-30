@@ -14,13 +14,24 @@ class _Scaffold extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              I18n().examIndexScreenTitle,
+              I18n().examIndexTitle,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const Gap(12),
-            Text(I18n().examIndexScreenDescription),
+            Text(I18n().examIndexDescription),
             const Gap(12),
-            const ExamList(),
+            const Expanded(
+              child: ExamList(),
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/exam_detail_screen');
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  child: Text(I18n().examIndexQuickStart),
+                ))
           ],
         ),
       ),

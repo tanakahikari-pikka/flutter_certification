@@ -8,7 +8,8 @@ class I18n {
   String get appName => 'Flutter 検定';
 
   // exam_index_screen
-  String get examIndexScreenTitle => '検定一覧';
-  String get examIndexScreenDescription =>
+  String get examIndexTitle => '検定一覧';
+  String get examIndexDescription =>
       'ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。';
+  String get examIndexQuickStart => 'クイックスタート';
 }
