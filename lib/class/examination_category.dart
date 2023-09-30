@@ -20,14 +20,14 @@ class ExaminationCategory {
 
   final String? firestoreId;
   final String name;
-  final String examType;
+  final ExamType examType;
   final int rank;
 
   factory ExaminationCategory._fromJson(Map<String, dynamic> json) {
     return ExaminationCategory(
       firestoreId: json['firestoreId'] as String,
       name: json['name'] as String,
-      examType: json['examType'] as String,
+      examType: ExamType.values.firstWhere((examType) => examType.toString() == json['examType'] as String),
       rank: json['rank'] as int,
     );
   }
