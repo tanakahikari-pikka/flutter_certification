@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "101926910962",
+    "project_id": "flutter-natures",
+    "storage_bucket": "flutter-natures.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101926910962:android:fd7139783e0d966647896b",
+        "android_client_info": {
+          "package_name": "com.example.the_natures_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101926910962-7ujj1r6ugn02t8fri2oij4a6gjl6ahju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGAS2gf0e5G6zGYcAmP7Wo0sGHvS7q1BA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101926910962-7ujj1r6ugn02t8fri2oij4a6gjl6ahju.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "101926910962-m9c7feepgjhsdnau1u2p75oeigt8srlq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.natureApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
