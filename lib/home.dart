@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
 
 import 'examination/ui/four_choice_question.dart';
-import 'system_button.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,8 +17,45 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(I18n().appName),
-        actions: const [SystemButton()],
       ),
+      endDrawer: Drawer(
+          child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'ユーザ名',
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                ),
+                // TODO: ユーザ名を参照
+                Text(
+                  'Tomas Muniesa',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                ),
+              ],
+            ),
+          ),
+          _drawerItem(context, 'ユーザー設定', () {}),
+          const SizedBox(height: 20),
+          _drawerItem(context, '利用規約', () {}),
+          _drawerItem(context, 'プライパシーポリシー', () {}),
+          const SizedBox(height: 20),
+          _drawerItem(context, '参考資料', () {}),
+          const SizedBox(height: 40),
+          _drawerItem(context, '退会', () {}),
+        ],
+      )),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -74,4 +110,21 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+Widget _drawerItem(
+  BuildContext context,
+  String title,
+  Function onTapHander,
+) {
+  return ListTile(
+    title: Text(
+      title,
+      style: Theme.of(context).textTheme.labelLarge,
+    ),
+    trailing: const Icon(
+      Icons.arrow_forward_ios,
+      size: 16.0,
+    ),
+  );
 }
