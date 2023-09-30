@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
 
+import 'examination/ui/four_choice_question.dart';
 import 'system_button.dart';
 
 class Home extends StatefulWidget {
@@ -58,7 +59,14 @@ class _HomeState extends State<Home> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => const FourChoiceQuestion(),
+            ),
+          );
+        },
         tooltip: 'Shuffle',
         icon: const Icon(Icons.fireplace),
         splashColor: Theme.of(context).colorScheme.background,
