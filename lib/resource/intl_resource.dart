@@ -5,5 +5,5 @@ class I18n {
 
   factory I18n() => _instance ??= I18n._();
 
-  String get appName => 'Flutter検定';
+  String get appName => 'Flutter 検定';
 }
