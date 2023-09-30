@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_natures_app/resource/intl_resource.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("The Natures"),
+        title: Text(I18n().appName),
       ),
       body: Center(
         child: Column(

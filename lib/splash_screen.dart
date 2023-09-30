@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:the_natures_app/resource/intl_resource.dart';
 
 import 'home.dart';
 
@@ -24,7 +25,8 @@ class _SplashScreenState extends State<SplashScreen> {
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const double begin = 0.0;
             const double end = 1.0;
-            final Animatable<double> tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInOut));
+            final Animatable<double> tween = Tween(begin: begin, end: end)
+                .chain(CurveTween(curve: Curves.easeInOut));
             final Animation<double> doubleAnimation = animation.drive(tween);
             return FadeTransition(
               opacity: doubleAnimation,
@@ -42,8 +44,11 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Text(
-          "The Natures",
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).colorScheme.primary),
+          I18n().appName,
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(color: Theme.of(context).colorScheme.primary),
         ),
       ),
     );
