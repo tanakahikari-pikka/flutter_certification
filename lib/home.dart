@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+
+import 'package:the_natures_app/examination/ui/screen/exam_index/exam_index_screen.dart';
 import 'package:the_natures_app/confirmation_document/confirm_document_type.dart';
 import 'package:the_natures_app/confirmation_document/ui/confirm_document_page.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
-
-import 'chat_completion.dart';
-import 'examination/sample_examinations.dart';
-import 'examination/ui/four_choice_question.dart';
+import 'package:the_natures_app/chat_completion.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -126,7 +125,7 @@ class _HomeState extends State<Home> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const SampleExaminations(),
+              builder: (BuildContext context) => const ExamIndexScreen(),
             ),
           );
         },
