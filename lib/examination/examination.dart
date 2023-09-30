@@ -10,7 +10,7 @@ final examinationsFutureProvider = StreamProvider.autoDispose<List<Examination>>
         fromFirestore: (ds, _) => Examination.fromDocumentSnapshot(ds),
         toFirestore: (_, __) => throw UnimplementedError(),
       );
-  final Query<Examination> query = examinationCollectionReference.where('categoryId');
+  final Query<Examination> query = examinationCollectionReference.where('categoryId', isEqualTo: 'PJFYsuDkbyf805beJnhM'); // 本来は選択された ExaminationCategory.firestoreId
   var streamQs = query.snapshots();
 
   return streamQs.map((qs) {

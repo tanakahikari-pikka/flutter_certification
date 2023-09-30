@@ -1,5 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+enum ExamType {
+  fourChoiceQuestion(displayName: '4択クイズ', sortNumber: 1),
+  trueOrFalseChoiceQuestion(displayName: '○×クイズ', sortNumber: 2);
+
+  final String displayName;
+  final int sortNumber;
+
+  const ExamType({required this.displayName, required this.sortNumber});
+}
+
 class ExaminationCategory {
   const ExaminationCategory({
     this.firestoreId,
@@ -10,15 +20,17 @@ class ExaminationCategory {
 
   final String? firestoreId;
   final String name;
-  final String examType;
+  final ExamType examType;
   final int rank;
 
   factory ExaminationCategory._fromJson(Map<String, dynamic> json) {
+    ExamType examType = ExamType.values.byName(json['examType'].toString());
+
     return ExaminationCategory(
       firestoreId: json['firestoreId'] as String,
       name: json['name'] as String,
-      examType: json['examType'] as String,
-      rank: json['rank'] as int,
+      examType: examType,
+      rank: int.parse(json['rank']),
     );
   }
 
