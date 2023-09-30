@@ -26,7 +26,10 @@ class _Scaffold extends StatelessWidget {
             const Gap(12),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/exam_detail_screen');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => const ExamResultScreen()),
+                  );
                 },
                 child: Container(
                   alignment: Alignment.center,
