@@ -12,11 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const brightness = Brightness.light;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'The Natures',
-      theme: NatureTheme.getDefaultTheme(brightness),
+      theme: NatureTheme.getDefaultTheme(),
       home: const SplashScreen(),
     );
   }
