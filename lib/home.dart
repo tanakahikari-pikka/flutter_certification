@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:the_natures_app/examination/ui/screen/exam_index/exam_index_screen.dart';
 import 'package:the_natures_app/confirmation_document/confirm_document_type.dart';
 import 'package:the_natures_app/confirmation_document/ui/confirm_document_page.dart';
-import 'package:the_natures_app/resource/intl_resource.dart';
-
 import 'package:the_natures_app/resource/intl_resource.dart';
 
 class Home extends StatefulWidget {

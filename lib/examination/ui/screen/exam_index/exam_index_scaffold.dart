@@ -19,7 +19,6 @@ class _Scaffold extends StatelessWidget {
             ),
             const Gap(24),
             Text(I18n().examIndexDescription),
-            const Gap(12),
             const Expanded(
               child: ExamList(),
             ),
