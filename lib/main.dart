@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
+import 'package:the_natures_app/resource/theme_resource.dart';
 
 import 'splash_screen.dart';
 
@@ -15,10 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: I18n().appName,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF40e0d0)),
-        useMaterial3: true,
-      ),
+      theme: NatureTheme.getDefaultTheme(),
       home: const SplashScreen(),
     );
   }
