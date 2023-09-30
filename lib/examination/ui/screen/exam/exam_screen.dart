@@ -1,9 +1,9 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:the_natures_app/examination/ui/result.dart';
-import 'package:the_natures_app/examination/ui/result_dialog.dart';
+import 'package:gap/gap.dart';
+import 'package:the_natures_app/resource/intl_resource.dart';
 
 part 'exam_scaffold.dart';
+part 'exam_content.dart';
 
 class ExamScreen extends StatelessWidget {
   const ExamScreen({super.key});
