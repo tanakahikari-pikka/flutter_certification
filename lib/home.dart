@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'system_button.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -8,40 +10,58 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> phrases = [
-    'You can go anywhere, be anything.',
-    'Stay hungry. Stay foolish.',
-    'Think different.',
-  ];
-
-  void shufflePhrases() {
-    setState(() {
-      phrases.shuffle();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("The Natures"),
+        backgroundColor: Theme.of(context).colorScheme.background,
+        title: const Text("Flutter 検定"),
+        actions: const [SystemButton()],
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              phrases[0],
-              style: Theme.of(context).textTheme.titleLarge,
+            Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.1,
+              margin: const EdgeInsets.all(20.0),
+              color: Colors.red,
+              child: Center(
+                child: Text(
+                  '現在のランキング',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.5,
+              color: Colors.yellow,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    '最近の記録',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Text(
+                    '変遷グラフ',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: shufflePhrases,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
         tooltip: 'Shuffle',
-        child: const Icon(Icons.sync),
+        icon: const Icon(Icons.fireplace),
+        splashColor: Theme.of(context).colorScheme.background,
+        label: const Text("検定に挑戦！"),
       ),
     );
   }
