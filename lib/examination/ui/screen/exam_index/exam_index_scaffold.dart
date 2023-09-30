@@ -14,11 +14,11 @@ class _Scaffold extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              I18n().examIndexTitle,
+              I18n().labelExamIndexTitle,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const Gap(24),
-            Text(I18n().examIndexDescription),
+            Text(I18n().messageExamIndexDescription),
             const Gap(12),
             const Expanded(
               child: ExamList(),
@@ -26,7 +26,10 @@ class _Scaffold extends StatelessWidget {
             const Gap(12),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/exam_detail_screen');
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) => const ExamResultScreen()),
+                  );
                 },
                 child: Container(
                   alignment: Alignment.center,
