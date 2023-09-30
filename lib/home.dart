@@ -3,6 +3,7 @@ import 'package:the_natures_app/confirmation_document/confirm_document_type.dart
 import 'package:the_natures_app/confirmation_document/ui/confirm_document_page.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
 
+import 'chat_completion.dart';
 import 'examination/sample_examinations.dart';
 import 'examination/ui/four_choice_question.dart';
 
@@ -72,6 +73,14 @@ class _HomeState extends State<Home> {
           ),
           _drawerItem(context, '参考資料', () {}),
           _drawerItem(context, '退会', () {}),
+          _drawerItem(context, 'AIチャット', () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => const ChatCompletion(),
+              ),
+            );
+          }),
         ],
       )),
       body: Center(
