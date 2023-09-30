@@ -22,7 +22,7 @@ class Examination {
       firestoreId: json['firestoreId'] as String,
       categoryId: json['categoryId'] as String,
       question: json['question'] as String,
-      choices: json['choices'] as List<String>,
+      choices: List.from(json['choices']),
       answer: json['answer'] as String,
       explanation: json['explanation'] as String,
     );

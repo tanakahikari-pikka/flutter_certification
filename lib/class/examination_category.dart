@@ -24,11 +24,13 @@ class ExaminationCategory {
   final int rank;
 
   factory ExaminationCategory._fromJson(Map<String, dynamic> json) {
+    ExamType examType = ExamType.values.byName(json['examType'].toString());
+
     return ExaminationCategory(
       firestoreId: json['firestoreId'] as String,
       name: json['name'] as String,
-      examType: ExamType.values.firstWhere((examType) => examType.toString() == json['examType'] as String),
-      rank: json['rank'] as int,
+      examType: examType,
+      rank: int.parse(json['rank']),
     );
   }
 

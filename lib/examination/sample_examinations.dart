@@ -13,32 +13,38 @@ class SampleExaminations extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('問題一覧'),
       ),
-      body: Row(
+      body: Column(
         children: [
-          ref.watch(examinationsFutureProvider).when(
-                data: (examinations) => ListView.builder(
-                  itemCount: examinations.length,
-                  itemBuilder: (context, index) => ListTile(
-                    title: Text(examinations[index].question),
-                    titleTextStyle: Theme.of(context).textTheme.titleMedium,
-                    subtitle: Text(examinations[index].answer),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: ref.watch(examinationCategoriesFutureProvider).when(
+                  data: (examinationCategories) => ListView.builder(
+                    itemCount: examinationCategories.length,
+                    itemBuilder: (context, index) => ListTile(
+                      title: Text(examinationCategories[index].name),
+                      titleTextStyle: Theme.of(context).textTheme.titleMedium,
+                      subtitle: Text(examinationCategories[index].examType.displayName),
+                    ),
                   ),
+                  error: (_, __) => const SizedBox(),
+                  loading: () => const Center(child: CircularProgressIndicator()),
                 ),
-                error: (_, __) => const SizedBox(),
-                loading: () => const Center(child: CircularProgressIndicator()),
-              ),
-          ref.watch(examinationCategoryFutureProvider).when(
-                data: (examinations) => ListView.builder(
-                  itemCount: examinations.length,
-                  itemBuilder: (context, index) => ListTile(
-                    title: Text(examinations[index].name),
-                    titleTextStyle: Theme.of(context).textTheme.titleMedium,
-                    subtitle: Text(examinations[index].examType.displayName),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: ref.watch(examinationsFutureProvider).when(
+                  data: (examinations) => ListView.builder(
+                    itemCount: examinations.length,
+                    itemBuilder: (context, index) => ListTile(
+                      title: Text(examinations[index].question),
+                      titleTextStyle: Theme.of(context).textTheme.titleMedium,
+                      subtitle: Text(examinations[index].answer),
+                    ),
                   ),
+                  error: (_, __) => const SizedBox(),
+                  loading: () => const Center(child: CircularProgressIndicator()),
                 ),
-                error: (_, __) => const SizedBox(),
-                loading: () => const Center(child: CircularProgressIndicator()),
-              ),
+          ),
         ],
       ),
     );

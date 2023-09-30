@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
 
+import 'examination/sample_examinations.dart';
 import 'examination/ui/four_choice_question.dart';
 
 class Home extends StatefulWidget {
@@ -99,7 +100,7 @@ class _HomeState extends State<Home> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const FourChoiceQuestion(),
+              builder: (BuildContext context) => const SampleExaminations(),
             ),
           );
         },
