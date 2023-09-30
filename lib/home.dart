@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_natures_app/resource/intl_resource.dart';
 
 import 'system_button.dart';
 
@@ -14,8 +15,8 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        title: const Text("Flutter 検定"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(I18n().appName),
         actions: const [SystemButton()],
       ),
       body: Center(
