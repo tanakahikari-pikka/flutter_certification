@@ -23,7 +23,7 @@ class ExamList extends StatelessWidget {
             "Riverpodから取得した検定説明文",
             style: Theme.of(context).textTheme.bodySmall,
           ),
-          trailing: const Icon(Icons.arrow_forward_ios),
+          trailing: const Icon(Icons.arrow_forward_ios, size: 16),
         );
       },
     );

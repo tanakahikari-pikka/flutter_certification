@@ -10,6 +10,6 @@ class I18n {
   // exam_index_screen
   String get examIndexTitle => '検定一覧';
   String get examIndexDescription =>
-      'ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。ここに説明文が入ります。';
+      'どの検定に挑戦するか選びましょう！クイックスタートではすべての問題からランダムに出題されます。';
   String get examIndexQuickStart => 'クイックスタート';
 }
