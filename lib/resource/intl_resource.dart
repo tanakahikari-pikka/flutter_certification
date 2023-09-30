@@ -12,4 +12,15 @@ class I18n {
   String get examIndexDescription =>
       'どの検定に挑戦するか選びましょう！クイックスタートではすべての問題からランダムに出題されます。';
   String get examIndexQuickStart => 'クイックスタート';
+
+  // exam_result_screen
+  String get labelExamResultTitle => '検定結果';
+  String labelExamResultCorrectCount({required int correctCount}) {
+    return 'Total correct: $correctCount ';
+  }
+
+  String get labelExamResultScore => '獲得スコア';
+  String get labelScorePt => 'pt';
+  String get labelAgain => 'もう一度';
+  String get labelEnd => '終了';
 }

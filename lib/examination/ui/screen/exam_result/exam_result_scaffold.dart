@@ -5,13 +5,22 @@ class _Scaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.fromLTRB(20, 60, 20, 60),
+        padding: const EdgeInsets.fromLTRB(20, 60, 20, 60),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("data"),
+            Text(
+              I18n().examIndexTitle,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const Gap(24),
+            const _ExamResultCalculationBlock(),
+            const Gap(36),
+            const _ScoreContent(),
+            const Gap(140),
+            const _ExamResultButtons(),
           ],
         ),
       ),
