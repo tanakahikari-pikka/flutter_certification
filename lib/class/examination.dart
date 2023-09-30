@@ -13,7 +13,7 @@ class Examination {
   final String? firestoreId;
   final String categoryId;
   final String question;
-  final List choices;
+  final List<String> choices;
   final String answer;
   final String explanation;
 
@@ -22,7 +22,7 @@ class Examination {
       firestoreId: json['firestoreId'] as String,
       categoryId: json['categoryId'] as String,
       question: json['question'] as String,
-      choices: json['choices'] as List,
+      choices: List.from(json['choices']),
       answer: json['answer'] as String,
       explanation: json['explanation'] as String,
     );
