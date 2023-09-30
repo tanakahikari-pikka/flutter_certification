@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_natures_app/examination/ui/screen/exam_index/exam_index_screen.dart';
+import 'package:the_natures_app/confirmation_document/confirm_document_type.dart';
+import 'package:the_natures_app/confirmation_document/ui/confirm_document_page.dart';
+import 'package:the_natures_app/resource/intl_resource.dart';
 
 import 'package:the_natures_app/resource/intl_resource.dart';
 
@@ -47,12 +50,27 @@ class _HomeState extends State<Home> {
             ),
           ),
           _drawerItem(context, 'ユーザー設定', () {}),
-          const SizedBox(height: 20),
-          _drawerItem(context, '利用規約', () {}),
-          _drawerItem(context, 'プライパシーポリシー', () {}),
-          const SizedBox(height: 20),
+          _drawerItem(
+            context,
+            '利用規約',
+            () {
+              _translateConfirmDocumentPage(
+                context,
+                ConfirmDocumentType.term,
+              );
+            },
+          ),
+          _drawerItem(
+            context,
+            'プライパシーポリシー',
+            () {
+              _translateConfirmDocumentPage(
+                context,
+                ConfirmDocumentType.privacyPolicy,
+              );
+            },
+          ),
           _drawerItem(context, '参考資料', () {}),
-          const SizedBox(height: 40),
           _drawerItem(context, '退会', () {}),
         ],
       )),
@@ -110,21 +128,37 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
 
-Widget _drawerItem(
-  BuildContext context,
-  String title,
-  Function onTapHander,
-) {
-  return ListTile(
-    title: Text(
-      title,
-      style: Theme.of(context).textTheme.labelLarge,
-    ),
-    trailing: const Icon(
-      Icons.arrow_forward_ios,
-      size: 16.0,
-    ),
-  );
+  Widget _drawerItem(
+    BuildContext context,
+    String title,
+    Function onTapHander,
+  ) {
+    return ListTile(
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.labelLarge,
+      ),
+      trailing: const Icon(
+        Icons.arrow_forward_ios,
+        size: 16.0,
+      ),
+      onTap: () {
+        onTapHander();
+      },
+    );
+  }
+
+  void _translateConfirmDocumentPage(
+    BuildContext context,
+    ConfirmDocumentType confirmDocumentType,
+  ) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => ConfirmDocumentPage(
+          confirmDocumentType: confirmDocumentType,
+        ),
+      ),
+    );
+  }
 }
