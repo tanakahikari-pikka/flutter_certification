@@ -17,11 +17,10 @@ class FourChoiceQuestion extends ConsumerStatefulWidget {
 }
 
 class _FourChoiceQuestionState extends ConsumerState<FourChoiceQuestion> {
-  late List<int> questionNumbers;
-  String finishMessage = "";
   Timer? _timer;
   int correctAnswersCount = 0;
   int currentExaminationIndex = 0;
+  int currentIndex = 1;
 
   @override
   initState() {
@@ -56,6 +55,7 @@ class _FourChoiceQuestionState extends ConsumerState<FourChoiceQuestion> {
                         );
                       } else {
                         setState(() {
+                          currentIndex++;
                           examinationIds.shuffle();
                           currentExaminationIndex = examinations.indexOf(examinations.firstWhere((exam) => exam.firestoreId == examinationIds[0]));
                         });
@@ -128,14 +128,14 @@ class _FourChoiceQuestionState extends ConsumerState<FourChoiceQuestion> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  I18n().labelQuestionNumber(examinations.length - examinationIds.length + 1, examinations.length),
+                                  I18n().labelQuestionNumber(currentIndex, examinations.length),
                                   style: Theme.of(context).textTheme.titleMedium,
                                 ),
                                 Divider(color: Theme.of(context).colorScheme.primary),
                                 const Gap(12),
                                 Text(
                                   examinations[currentExaminationIndex].question,
-                                  style: Theme.of(context).textTheme.titleLarge,
+                                  style: Theme.of(context).textTheme.titleMedium,
                                 ),
                                 ListView.builder(
                                   scrollDirection: Axis.vertical,
