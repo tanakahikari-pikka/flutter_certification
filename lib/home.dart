@@ -21,9 +21,15 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(I18n().appName),
+        title: Text(
+          I18n().appName,
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+        ),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       endDrawer: Drawer(
           child: ListView(
@@ -43,7 +49,6 @@ class _HomeState extends State<Home> {
                         color: Theme.of(context).colorScheme.onPrimary,
                       ),
                 ),
-                // TODO: ユーザ名を参照
                 Text(
                   'Tomas Muniesa',
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
@@ -98,56 +103,46 @@ class _HomeState extends State<Home> {
         ],
       )),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.1,
-              margin: const EdgeInsets.all(20.0),
-              color: Colors.red,
-              child: Center(
-                child: Text(
-                  '現在のランキング',
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+          ),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => const ExamIndexScreen(),
               ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 8.0,
+              horizontal: 16,
             ),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.5,
-              color: Colors.yellow,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.6,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    '最近の記録',
-                    style: Theme.of(context).textTheme.titleMedium,
+                  const Icon(Icons.fireplace),
+                  const SizedBox(
+                    width: 16,
                   ),
                   Text(
-                    '変遷グラフ',
-                    style: Theme.of(context).textTheme.titleMedium,
+                    '検定に挑戦！',
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          fontSize: 24,
+                          color:
+                              Theme.of(context).colorScheme.onPrimaryContainer,
+                        ),
                   ),
                 ],
               ),
             ),
-          ],
+          ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (BuildContext context) => const ExamIndexScreen(),
-            ),
-          );
-        },
-        tooltip: 'Shuffle',
-        icon: const Icon(Icons.fireplace),
-        splashColor: Theme.of(context).colorScheme.background,
-        label: const Text("検定に挑戦！"),
       ),
     );
   }
