@@ -5,6 +5,14 @@ https://hackathon.flutteruniv.com/
 # flutter 検定
 flutter の知識を試し学べる検定アプリです。
 
+# 必要な作業
+ルートディレクトリに `.env` ファイルが必要になります。
+
+以下の内容で作成
+```Dart
+OPENAI_API_KEY=""
+```
+
 # 挙動
 https://github.com/tanakahikari-pikka/flutter_certification/assets/55306159/62f22eb9-77d8-4dd6-b228-fdf330f49eb6
 
