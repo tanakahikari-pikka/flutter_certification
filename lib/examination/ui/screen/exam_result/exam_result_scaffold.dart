@@ -12,7 +12,7 @@ class _Scaffold extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              I18n().examIndexTitle,
+              I18n().labelExamIndexTitle,
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const Gap(24),

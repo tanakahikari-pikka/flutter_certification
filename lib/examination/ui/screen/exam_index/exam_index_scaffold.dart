@@ -27,8 +27,7 @@ class _Scaffold extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => const ExamResultScreen()),
+                    MaterialPageRoute(builder: (context) => const FourChoiceQuestion()),
                   );
                 },
                 child: Container(

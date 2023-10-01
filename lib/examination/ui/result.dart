@@ -1,5 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:the_natures_app/home.dart';
+import 'package:the_natures_app/resource/intl_resource.dart';
 
 import 'four_choice_question.dart';
 
@@ -44,68 +47,64 @@ class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-        Container(
-          color: const Color(0xFF7DDDC0),
-        ),
-        BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 500, sigmaY: 500),
-        ),
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 30),
-                child: Column(children: [
-                  const Text(
-                    "\\ 結果発表 /",
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 80, 20, 80),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              I18n().labelExamResultTitle,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const Gap(36),
+            Center(
+              child: Column(
+                children: [
+                  Text(I18n().labelExamResultCorrectCount(correctCount: widget.correctAnswersCount), style: Theme.of(context).textTheme.titleMedium),
+                  Text(
+                    I18n().labelExamResultScore,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 36,
                       fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.shadow,
                     ),
                   ),
+                  const Gap(12),
                   Container(
-                    margin: const EdgeInsets.only(top: 50),
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      const Text(
-                        "Flutter 検定",
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      if (certifyingExaminationResult != "1級")
-                        Text(
-                          certifyingExaminationResult,
-                          style: const TextStyle(
-                            fontSize: 38,
-                            letterSpacing: 1,
-                          ),
-                        ),
-                      if (certifyingExaminationResult == "1級")
-                        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      width: double.infinity,
+                      height: 150,
+                      color: Colors.lightGreen,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
                           Text(
-                            certifyingExaminationResult,
-                            style: const TextStyle(
-                              fontSize: 38,
-                              letterSpacing: 1,
+                            "1234",
+                            style: TextStyle(
+                              fontSize: 48,
                               fontWeight: FontWeight.bold,
+                              color: Theme.of(context).colorScheme.shadow,
                             ),
                           ),
-                        ]),
-                    ]),
-                  ),
-                ]),
+                          const Gap(12),
+                          Text(
+                            I18n().labelScorePt,
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).colorScheme.shadow,
+                            ),
+                          ),
+                        ],
+                      ))
+                ],
               ),
-              Column(children: [
-                Text(
-                  "正解数\n${widget.correctAnswersCount} / ${widget.questionCount}",
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 16),
-                ),
-                GestureDetector(
-                  onTap: () {
+            ),
+            const Gap(140),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MaterialButton(
+                  onPressed: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
@@ -113,34 +112,48 @@ class _ResultState extends State<Result> {
                       ),
                     );
                   },
+                  padding: const EdgeInsets.all(16),
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  textColor: Theme.of(context).colorScheme.shadow,
+                  shape: const CircleBorder(),
                   child: Container(
-                    width: MediaQuery.of(context).size.width / 3,
-                    height: MediaQuery.of(context).size.width / 10,
-                    margin: const EdgeInsets.symmetric(vertical: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "トップへ戻る",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black,
-                        ),
+                    padding: const EdgeInsets.all(24),
+                    child: Text(
+                      I18n().labelAgain,
+                      style: const TextStyle(
+                        fontSize: 24,
                       ),
                     ),
-                  ),
+                  ), //丸
                 ),
-              ]),
-            ],
-          ),
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const Home(),
+                      ),
+                    );
+                  },
+                  padding: const EdgeInsets.all(16),
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  textColor: Theme.of(context).colorScheme.shadow,
+                  shape: const CircleBorder(),
+                  child: Container(
+                    padding: const EdgeInsets.all(24),
+                    child: Text(
+                      I18n().labelEnd,
+                      style: const TextStyle(
+                        fontSize: 24,
+                      ),
+                    ),
+                  ), //丸
+                ),
+              ],
+            ),
+          ],
         ),
-      ]),
+      ),
     );
   }
 }

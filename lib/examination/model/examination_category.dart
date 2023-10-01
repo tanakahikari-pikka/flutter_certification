@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../class/examination_category.dart';
+import '../../class/examination_category.dart';
 
 /// すべての [ExaminationCategory] を rank の昇順で購読する。
 final examinationCategoriesFutureProvider = StreamProvider.autoDispose<List<ExaminationCategory>>((ref) {

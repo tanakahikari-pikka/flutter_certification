@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../class/examination.dart';
+import '../../class/examination.dart';
 
 /// すべての [Examination] を購読する。
 final examinationsFutureProvider = StreamProvider.autoDispose<List<Examination>>((ref) {
