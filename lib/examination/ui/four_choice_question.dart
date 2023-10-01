@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:the_natures_app/examination/model/examination.dart';
+import 'package:the_natures_app/home.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
 
 import 'result.dart';
@@ -218,7 +219,7 @@ class _FourChoiceQuestionState extends ConsumerState<FourChoiceQuestion> {
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (BuildContext context) => const FourChoiceQuestion(),
+                                          builder: (BuildContext context) => const Home(),
                                         ),
                                       );
                                     },
