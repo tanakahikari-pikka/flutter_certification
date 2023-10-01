@@ -16,12 +16,14 @@ class ExaminationCategory {
     required this.name,
     required this.examType,
     required this.rank,
+    required this.description,
   });
 
   final String? firestoreId;
   final String name;
   final ExamType examType;
   final int rank;
+  final String description;
 
   factory ExaminationCategory._fromJson(Map<String, dynamic> json) {
     ExamType examType = ExamType.values.byName(json['examType'].toString());
@@ -31,6 +33,7 @@ class ExaminationCategory {
       name: json['name'] as String,
       examType: examType,
       rank: int.parse(json['rank']),
+      description: json['description'] as String,
     );
   }
 

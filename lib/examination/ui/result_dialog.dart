@@ -22,7 +22,6 @@ class ResultDialog extends StatelessWidget {
         Image.asset(resultImage, width: 200, height: 200),
         Container(
           width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.5,
           margin: const EdgeInsets.all(10),
           padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(

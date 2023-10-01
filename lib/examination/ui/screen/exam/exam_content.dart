@@ -13,7 +13,7 @@ class _Content extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            I18n().labelQuestionNumber(1), // TODO Riverpod流し込み: 問題番号
+            I18n().labelQuestionNumber(1, 10), // TODO Riverpod流し込み: 問題番号
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const Gap(12),

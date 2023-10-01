@@ -9,8 +9,7 @@ class I18n {
 
   // exam_index_screen
   String get labelExamIndexTitle => '検定一覧';
-  String get messageExamIndexDescription =>
-      'どの検定に挑戦するか選びましょう！クイックスタートではすべての問題からランダムに出題されます。';
+  String get messageExamIndexDescription => 'どの検定に挑戦するか選びましょう！クイックスタートではすべての問題からランダムに出題されます。';
   String get examIndexQuickStart => 'クイックスタート';
 
   // exam_result_screen
@@ -25,8 +24,8 @@ class I18n {
   String get labelEnd => '終了';
   // exam_screen
   String get labelexamTitle => '検定画面';
-  String labelQuestionNumber(int questionId) {
-    return 'Question $questionId';
+  String labelQuestionNumber(int questionId, int totalQuestionCount) {
+    return 'Question $questionId / $totalQuestionCount';
   }
 
   String get labelAnserButtonClicked => '回答する';
