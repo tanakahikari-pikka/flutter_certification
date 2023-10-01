@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:the_natures_app/examination/ui/screen/exam_index/exam_index_screen.dart';
+import 'package:the_natures_app/examination/ui/screen/exam/exam_screen.dart';
 import 'package:the_natures_app/confirmation_document/confirm_document_type.dart';
 import 'package:the_natures_app/confirmation_document/ui/confirm_document_page.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const ExamIndexScreen(),
+              builder: (BuildContext context) => const ExamScreen(),
             ),
           );
         },
