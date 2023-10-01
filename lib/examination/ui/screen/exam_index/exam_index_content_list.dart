@@ -10,14 +10,14 @@ class ExamList extends ConsumerWidget {
           data: (examinationCategories) {
             return ListView.builder(
               padding: EdgeInsets.zero,
-              itemCount: examinationCategories.length, // Riverpodから取得した検定一覧の数
+              itemCount: examinationCategories.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const ExamScreen(),
+                        builder: (BuildContext context) => const FourChoiceQuestion(),
                       ),
                     );
                   },
