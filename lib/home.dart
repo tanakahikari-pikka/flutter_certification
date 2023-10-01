@@ -4,6 +4,7 @@ import 'package:the_natures_app/examination/ui/screen/exam/exam_screen.dart';
 import 'package:the_natures_app/confirmation_document/confirm_document_type.dart';
 import 'package:the_natures_app/confirmation_document/ui/confirm_document_page.dart';
 import 'package:the_natures_app/resource/intl_resource.dart';
+import 'package:the_natures_app/chat_completion.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -71,6 +72,14 @@ class _HomeState extends State<Home> {
           ),
           _drawerItem(context, '参考資料', () {}),
           _drawerItem(context, '退会', () {}),
+          _drawerItem(context, 'AIチャット', () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => const ChatCompletion(),
+              ),
+            );
+          }),
         ],
       )),
       body: Center(
