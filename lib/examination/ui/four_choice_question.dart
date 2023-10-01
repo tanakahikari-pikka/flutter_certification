@@ -43,9 +43,11 @@ class _FourChoiceQuestionState extends ConsumerState<FourChoiceQuestion> {
                     final List<String> examinationIds = List.from(examinations.map((exam) => exam.firestoreId));
 
                     nextQuestion() {
-                      examinationIds.removeAt(0);
+                      setState(() {
+                        examinationIds.removeAt(0);
+                      });
 
-                      if (examinationIds.isEmpty) {
+                      if (currentIndex > 9) {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
                             builder: (context) {
