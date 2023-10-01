@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:the_natures_app/home.dart';
+import 'package:the_natures_app/user/services/firebase_auth_service.dart';
 import 'firebase_options.dart';
 
 import 'package:the_natures_app/resource/intl_resource.dart';
@@ -30,7 +33,24 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: I18n().appName,
       theme: NatureTheme.getDefaultTheme(),
-      home: const SplashScreen(),
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const SplashScreen();
+          }
+
+          return FutureBuilder<void>(
+            future: FirebaseAuthService().signIn(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const SplashScreen();
+              }
+              return const Home();
+            },
+          );
+        },
+      ),
     );
   }
 }
